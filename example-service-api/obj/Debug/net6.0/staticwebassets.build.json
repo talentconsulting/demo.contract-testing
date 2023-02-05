@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "15t4T6o+F4I3PjM5T663R+Hz+EwALH62TanN0YcDbuY=",
+  "Source": "example-service-api",
+  "BasePath": "_content/example-service-api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
