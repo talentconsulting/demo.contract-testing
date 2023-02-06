@@ -7,3 +7,7 @@ Feature: CReating and retrieving customers
     Then response code should be 201
     And response header location should exist
     And I store the value of response header location as location in global scope
+
+  Scenario: Retrieve a customer based on id
+    When I GET `location`
+    Then response code should be 200

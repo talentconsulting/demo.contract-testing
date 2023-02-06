@@ -46,7 +46,7 @@ public class CustomersController : ControllerBase
 
             await _customerService.AddCustomer(customer);
 
-            return Created(new Uri($"api/customers/{customer.Id}", UriKind.Relative), customer);
+            return Created(new Uri($"/api/customers/{customer.Id}", UriKind.Relative), customer);
         }
 
         return BadRequest(ModelState);
