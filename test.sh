@@ -4,6 +4,12 @@ exitcode=0
 
 echo
 echo =============================================================================
+echo  Please make sure you have logged into github:
+echo  run the command 'docker login ghcr.io'
+echo
+
+echo
+echo =============================================================================
 echo  Starting Contract Tests
 echo
 
