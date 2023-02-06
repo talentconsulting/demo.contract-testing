@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace example_service_api.Controllers;
 
 [ApiController]
-[Route("api/[controller]/[action]")]
+[Route("api/customers")]
 public class CustomersController : ControllerBase
 {
     private readonly ICustomerService _customerService;
@@ -17,13 +17,14 @@ public class CustomersController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetAllCustomers")]
+    [HttpGet]
     public async Task<IEnumerable<Customer>> GetAllCustomers()
     {
         return await _customerService.GetCustomers();
     }
 
-    [HttpGet(Name = "GetCustomer")]
+    [HttpGet]
+    [Route("{id}")]
     public async Task<IActionResult> GetCustomer(string id)
     {
         var customer = await _customerService.GetCustomer(id);
@@ -36,7 +37,7 @@ public class CustomersController : ControllerBase
         return NotFound($"Customer id {id} not found");
     }
 
-    [HttpPost(Name = "CreateCustomer")]
+    [HttpPost]
     public async Task<IActionResult> CreateCustomer(Customer customer)
     {
         if (ModelState.IsValid) 
@@ -45,7 +46,7 @@ public class CustomersController : ControllerBase
 
             await _customerService.AddCustomer(customer);
 
-            return Created(new Uri($"/Customer/{customer.Id}", UriKind.Relative), customer);
+            return Created(new Uri($"api/customers/{customer.Id}", UriKind.Relative), customer);
         }
 
         return BadRequest(ModelState);
