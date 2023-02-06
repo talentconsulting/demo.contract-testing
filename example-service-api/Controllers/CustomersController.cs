@@ -24,7 +24,6 @@ public class CustomersController : ControllerBase
     }
 
     [HttpGet(Name = "GetCustomer")]
-    [Route("{id}")]
     public async Task<IActionResult> GetCustomer(string id)
     {
         var customer = await _customerService.GetCustomer(id);
