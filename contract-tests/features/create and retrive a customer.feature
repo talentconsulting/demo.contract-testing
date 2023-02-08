@@ -11,3 +11,4 @@ Feature: CReating and retrieving customers
   Scenario: Retrieve a customer based on id
     When I GET `location`
     Then response code should be 200
+    And response body should be valid according to schema file test-assets/validating-schema.json
