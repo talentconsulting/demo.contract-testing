@@ -27,6 +27,13 @@ namespace example_service_api.Services
 		{
 			return Task.FromResult(_customers.FirstOrDefault<Customer>(c => c.Id == id));
 		}
+
+		public Task DeleteCustomer(string id)
+		{
+			_customers.RemoveAll(c => c.Id == id);
+
+			return Task.FromResult(0);
+		}
     }
 }
 

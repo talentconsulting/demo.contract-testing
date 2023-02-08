@@ -37,6 +37,15 @@ public class CustomersController : ControllerBase
         return NotFound($"Customer id {id} not found");
     }
 
+    [HttpDelete]
+    [Route("{id}")]
+    public async Task<IActionResult> DeleteCustomer(string id)
+    {
+        await _customerService.DeleteCustomer(id);
+        
+        return Ok("Deleted");
+    }
+
     [HttpPost]
     public async Task<IActionResult> CreateCustomer(Customer customer)
     {
