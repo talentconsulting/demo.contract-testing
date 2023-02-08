@@ -1,4 +1,4 @@
-Feature: CReating and retrieving customers
+Feature: Creating and retrieving customers
   Scenario: Happy path
     Given I set User-Agent header to apickli
     And I set Content-Type header to application/json
